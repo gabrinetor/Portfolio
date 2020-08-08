@@ -1,3 +1,20 @@
+$(function () {
+  var fileName = "../cv/Curriculo Gabriela da Rosa Neto.pdf";
+  $("#btnShow").click(function () {
+      $("#dialog").dialog({
+          modal: true,
+          title: fileName,
+          width: 860,
+          height: 600,
+          open: function () {
+              var object = "<object data=\"{FileName}\" type=\"application/pdf\" width=\"790px\" height=\"500px\">";
+              object = object.replace(/{FileName}/g, "Files/" + fileName);
+              $("#dialog").html(object);
+          }
+      });
+  });
+});
+
 $(document).ready(function(){
   $(window).scroll(function(){
     if(this.scrollY > 20){
